@@ -106,4 +106,8 @@ def faceid(request: HttpRequest):
             "code": "200",
             "data": result.get("verified")
         })
-    return Response
+    return Response({
+        "status": "error",
+        "code": "404",
+        "data": None
+    })
