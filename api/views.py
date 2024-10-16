@@ -71,9 +71,12 @@ def faceid(request: HttpRequest):
     format, imgstr = base64data.split(';base64,')
     ext = format.split('/')[-1]
     base64image = ContentFile(base64.b64decode(imgstr), name=f"taken.{ext}")
+    print(employee)
+    print(request.data)
     if employee:
         employee = employee.first()
         report = Report.objects.filter(employee=employee, created=now)
+        print(report)
         if report:
             return Response({
                 "status": "error",
@@ -91,6 +94,7 @@ def faceid(request: HttpRequest):
             img1_path=employee.image.path,
             img2_path=report.image.path
         )
+        print(result)
         if result.get("verified"):
             report.status = "passed"
             report.save()
