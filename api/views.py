@@ -27,6 +27,9 @@ def check_location(request: HttpRequest):
         polygon = Polygon(coordinates)
         point = Point((longitude, latitude))
         point_in_the_area = polygon.contains(point)
+        print(polygon)
+        print(point)
+        print(point_in_the_area)
         if (point_in_the_area):
             return Response({
                 "status": "success",
