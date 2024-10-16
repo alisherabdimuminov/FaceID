@@ -16,6 +16,8 @@ from employees.models import Area, Employee, Report
 def check_location(request: HttpRequest):
     longitude = request.data.get("longitude")
     latitude = request.data.get("latitude")
+    print("logitude:", longitude)
+    print("latitude:", latitude)
 
     areas = Area.objects.all()
     for area in areas:
