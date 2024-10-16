@@ -20,6 +20,7 @@ def check_location(request: HttpRequest):
     print("latitude:", latitude)
 
     areas = Area.objects.all()
+    print(areas)
     for area in areas:
         coordinates = []
         for coord in area.coordinates.all():
