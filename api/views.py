@@ -75,7 +75,7 @@ def faceid(request: HttpRequest):
     print(request.data)
     if employee:
         employee = employee.first()
-        report = Report.objects.filter(employee=employee, created=now)
+        report = Report.objects.filter(employee=employee.pk, created=now)
         print(report)
         if report:
             return Response({
