@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-(q^j#ge65ts1d#tx%e-$)**tg51caz(d=8ucztldzeivpoccm)
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["api.fc.uzfi.uz", "www.api.fc.uzfi.uz"]
 
 
 INSTALLED_APPS = [
@@ -94,10 +94,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = ["http://*.uzfi.uz"]
-CSRF_ALLOWED_ORIGINS = ["http://*.uzfi.uz"]
-CSRF_TRUSTED_ORIGIN = ["http://*.uzfi.uz"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://api.fc.uzfi.uz",
+]
 
 AUTH_USER_MODEL = "users.User"
 
@@ -105,5 +106,3 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework.authentication.TokenAuthentication", ],
     # "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }
-
-CSRF_TRUSTED_ORIGINS = ["https://fc.uzfi.uz", "https://www.fc.uzfi.uz"]
