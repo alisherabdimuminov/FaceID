@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 
-from .models import Employee, Report, Department
+from .models import Employee, Report, Department, Application
 from .serializers import (
     EmployeesSerializer, 
     CreateEmployeeSerializer, 
@@ -13,9 +13,32 @@ from .serializers import (
     ReportSerializer, 
     DepartmentSerializer,
     EditEmployeeSerializer,
+    ApplicationsSerializer,
+    EmployeeReportSerializer,
 )
-from .filters import DateFilterBackend, WithDepartmentFilterBackend
+from .filters import DateFilterBackend, WithDepartmentFilterBackend, WithEmployeeApplicationFilterBackend
 
+
+# Applications
+
+class ApplicationListAPIView(generics.ListAPIView):
+    queryset = Application.objects.all()
+    serializer_class = ApplicationsSerializer
+    filter_backends = [WithEmployeeApplicationFilterBackend, ]
+
+
+@decorators.api_view(http_method_names=["POST"])
+def add_application(request: HttpRequest):
+    application = ApplicationsSerializer(Application, data=request.data)
+    if application.is_valid():
+        application.create(validated_data=application.validated_data)
+    else:
+        print(application.errors)
+    return Response({
+        "status": "success",
+        "code": "200",
+        "data": None
+    })
 
 # Departments
 
@@ -131,11 +154,12 @@ def edit_employee(request: HttpRequest, uuid: str):
 def create_employee(request: HttpRequest):
     employee = CreateEmployeeSerializer(Employee, data=request.data)
     if (employee.is_valid()):
-        employee.create(employee.validated_data)
+        e = employee.create(employee.validated_data)
+        print(e.uuid)
         return Response({
             "status": "success",
             "code": "201",
-            "data": None
+            "data": f"{e.uuid}"
         })
     print(request.data)
     print(employee.errors)
@@ -181,3 +205,13 @@ class ReportRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Report.objects.all()
     serializer_class = ReportSerializer
     lookup_field = "pk"
+
+class AttendanceListAPIView(generics.ListAPIView):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeReportSerializer
+    filter_backends = [WithDepartmentFilterBackend]
+
+
+@decorators.api_view(http_method_names=["GET"])
+def statistics(request: HttpRequest):
+    return Response()

@@ -14,6 +14,11 @@ from .views import (
     add_department,
     edit_department,
     delete_department,
+
+    ApplicationListAPIView,
+    add_application,
+
+    AttendanceListAPIView,
 )
 
 
@@ -31,5 +36,10 @@ urlpatterns = [
     path("departments/create/", add_department, name="add_department"),
     path("departments/department/<int:id>/edit/", edit_department, name="edit_department"),
     path("departments/department/<int:id>/delete/", delete_department, name="delete_department"),
+
+    path("applications/", ApplicationListAPIView.as_view(), name="applications"),
+    path("applications/create/", add_application, name="add_application"),
+
+    path("attendance/", AttendanceListAPIView.as_view(), name="attendance"),
 ]
 

@@ -27,8 +27,26 @@ class AreaModelSerializer(admin.ModelAdmin):
 @admin.register(Employee)
 class EmployeeModelAdmin(admin.ModelAdmin):
     list_display = ["first_name", "last_name", "middle_name", ]
+    
+    fieldsets = (
+        ("Ish ma'lumotlari", {
+            "fields": ("department", "position", "specialist", "scientific_title", "academic_degree", )
+        }),
+        ("Shaxsiy ma'lumotlar", {
+            "fields": ("first_name", "last_name", "middle_name", "gender", "nationality", "image", "birth_date", )
+        }),
+        ("Manzil", {
+            "fields": ("state", "province", "district", "address", )
+        }),
+        ("Passport ma'lumotlari", {
+            "fields": ("passport_number", "passport_pinfl", )
+        }),
+        ("Aloqa", {
+            "fields": ("email", "phone", )
+        }),
+    )
 
 
 @admin.register(Report)
 class ReportModelAdmin(admin.ModelAdmin):
-    list_display = ["status", "employee", ]
+    list_display = ["status", "employee", "created"]

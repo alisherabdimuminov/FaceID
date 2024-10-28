@@ -17,3 +17,10 @@ class WithDepartmentFilterBackend(BaseFilterBackend):
         if department and department != "0":
             return queryset.filter(department__pk=department)
         return queryset
+    
+class WithEmployeeApplicationFilterBackend(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        employee = request.GET.get("employee")
+        if employee:
+            return queryset.filter(employee__uuid=employee)
+        return queryset
