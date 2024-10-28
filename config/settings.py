@@ -96,6 +96,7 @@ CORS_ALLOW_CREDENTIALS = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = ["https://api.fc.uzfi.uz"]
+CSRF_TRUSTED_ORIGIN = ["https://api.fc.uzfi.uz"]
 
 AUTH_USER_MODEL = "users.User"
 
