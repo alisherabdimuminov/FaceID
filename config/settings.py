@@ -94,8 +94,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = ["https://api.fc.uzfi.uz"]
-SESSION_COOKIE_DOMAIN = [".fc.uzfi.uz"]
-CSRF_COOKIE_DOMAIN = [".fc.uzfi.uz"]
+SESSION_COOKIE_DOMAIN = ".fc.uzfi.uz"
+CSRF_COOKIE_DOMAIN = ".fc.uzfi.uz"
 CSRF_COOKIE_SECURE = True
 
 AUTH_USER_MODEL = "users.User"
