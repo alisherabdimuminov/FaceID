@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-(q^j#ge65ts1d#tx%e-$)**tg51caz(d=8ucztldzeivpoccm)'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["api.fc.uzfi.uz", "localhost", "127.0.0.1"]
 
@@ -97,7 +97,7 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
     "https://api.fc.uzfi.uz",
 ]
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 AUTH_USER_MODEL = "users.User"
 
