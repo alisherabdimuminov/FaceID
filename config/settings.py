@@ -96,11 +96,10 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://api.fc.uzfi.uz",
+    "https://api.fc.uzfi.uz/",
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "https://api.fc.uzfi.uz",
+    "https://api.fc.uzfi.uz/",
 ]
 
 AUTH_USER_MODEL = "users.User"
