@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-(q^j#ge65ts1d#tx%e-$)**tg51caz(d=8ucztldzeivpoccm)
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["api.fc.uzfi.uz"]
 
 
 INSTALLED_APPS = [
@@ -34,7 +34,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
