@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-(q^j#ge65ts1d#tx%e-$)**tg51caz(d=8ucztldzeivpoccm)
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["api.fc.uzfi.uz", "www.api.fc.uzfi.uz"]
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
@@ -91,7 +91,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["http://api.fc.uzfi.uz"]
+CSRF_TRUSTED_ORIGINS = ["*"]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://api.fc.uzfi.uz",
