@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-(q^j#ge65ts1d#tx%e-$)**tg51caz(d=8ucztldzeivpoccm)
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["api.fc.uzfi.uz", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
