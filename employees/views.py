@@ -140,6 +140,7 @@ def edit_employee(request: HttpRequest, uuid: str):
             "code": "200",
             "data": None
         })
+    print(request.data)
     print(employee.errors)
     return Response({
         "status": "error",
